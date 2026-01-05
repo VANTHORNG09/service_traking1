@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, Text, ScrollView, TextInput, TouchableOpacity, Alert, ActivityIndicator } from 'react-native';
-import { useNavigation, useRoute } from '@react-navigation/native';
+import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import { useServiceStore } from '../store/serviceStore';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../navigation/AppNavigator';
@@ -10,12 +10,7 @@ import { CustomPicker } from '../components/CustomPicker';
 import { Picker } from '@react-native-picker/picker';
 
 type EditServiceScreenNavigationProp = StackNavigationProp<RootStackParamList, 'EditService'>;
-
-type EditServiceRouteProp = {
-  params: {
-    serviceId: string;
-  };
-};
+type EditServiceRouteProp = RouteProp<RootStackParamList, 'EditService'>;
 
 export default function EditServiceScreen() {
   const route = useRoute<EditServiceRouteProp>();

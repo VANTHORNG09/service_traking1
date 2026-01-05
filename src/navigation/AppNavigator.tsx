@@ -15,17 +15,17 @@ import EditServiceScreen from '../screens/EditServiceScreen';
 import AssignServiceScreen from '../screens/AssignServiceScreen';
 import { useAuthStore } from '../store/authStore';
 
-type RootStackParamList = {
+export type RootStackParamList = {
   Login: undefined;
   Register: undefined;
-  MainTabs: undefined;
+  MainTabs: { screen?: keyof MainTabsParamList } | undefined;
   ServiceDetail: { serviceId: string };
   CreateService: undefined;
   EditService: { serviceId: string };
   AssignService: { serviceId: string };
 };
 
-type MainTabsParamList = {
+export type MainTabsParamList = {
   Dashboard: undefined;
   Services: undefined;
   Reports: undefined;
@@ -40,7 +40,7 @@ const MainTabsNavigator = () => {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         tabBarIcon: ({ color, size }) => {
-          let iconName;
+          let iconName = 'question';
           
           if (route.name === 'Dashboard') {
             iconName = 'home';

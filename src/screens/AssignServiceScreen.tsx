@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, Text, FlatList, TouchableOpacity, TextInput, ActivityIndicator, Alert } from 'react-native';
-import { useNavigation, useRoute } from '@react-navigation/native';
+import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import { useServiceStore } from '../store/serviceStore';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../navigation/AppNavigator';
@@ -8,12 +8,7 @@ import { Icon } from 'react-native-elements';
 import { User } from '../types';
 
 type AssignServiceScreenNavigationProp = StackNavigationProp<RootStackParamList, 'AssignService'>;
-
-type AssignServiceRouteProp = {
-  params: {
-    serviceId: string;
-  };
-};
+type AssignServiceRouteProp = RouteProp<RootStackParamList, 'AssignService'>;
 
 export default function AssignServiceScreen() {
   const route = useRoute<AssignServiceRouteProp>();
