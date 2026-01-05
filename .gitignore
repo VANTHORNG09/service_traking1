@@ -1,43 +1,48 @@
-# Dependency directories
+# Node modules
 node_modules/
-jspm_packages/
 
-# Build outputs
-dist/
-build/
-.next/
-out/
+# Expo cache
+.expo/
 
 # Environment variables
 .env
 .env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.*.local
 
-# Logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-logs/
-*.log
-
-# OS metadata
-.DS_Store
-Thumbs.db
-
-# IDEs and editors
+# IDE files
 .idea/
 .vscode/
 *.swp
 *.swo
 
-# Mobile specific
-ios/Pods/
-ios/build/
-android/app/build/
-android/build/
-.expo/
+# Build artifacts
+android/
+ios/
+build/
+dist/
 
-# Database
-*.sqlite
+# Dependencies
+package-lock.json
+yarn.lock
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Test coverage
+coverage/
+
+# Expo specific
+.expo-cache/
