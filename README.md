@@ -1,4 +1,4 @@
-# service_traking
+# service_tracking
 
 A web and mobile service tracking platform for managers and team members.
 

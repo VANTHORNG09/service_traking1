@@ -1,6 +1,6 @@
-# Service Tracking Application (service_traking) - Architecture & Design Plan
+# Service Tracking Application (service_tracking) - Architecture & Design Plan
 
-This document serves as the comprehensive blueprint for the development of the `service_traking` application, a web and mobile platform designed for managers and team members to track and manage service tasks.
+This document serves as the comprehensive blueprint for the development of the `service_tracking` application, a web and mobile platform designed for managers and team members to track and manage service tasks.
 
 ---
 
