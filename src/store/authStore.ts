@@ -29,7 +29,7 @@ export const useAuthStore = create<AuthState>((set) => ({
       
       await setAuthToken(token);
       set({ user, token, isLoading: false });
-    } catch (error) {
+    } catch (error: any) {
       set({ 
         error: error.response?.data?.message || 'Login failed', 
         isLoading: false 
@@ -51,7 +51,7 @@ export const useAuthStore = create<AuthState>((set) => ({
       
       await setAuthToken(token);
       set({ user, token, isLoading: false });
-    } catch (error) {
+    } catch (error: any) {
       set({ 
         error: error.response?.data?.message || 'Registration failed', 
         isLoading: false 

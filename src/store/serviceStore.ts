@@ -29,7 +29,7 @@ export const useServiceStore = create<ServiceState>((set) => ({
     try {
       const response = await api.get('/services');
       set({ services: response.data, isLoading: false });
-    } catch (error) {
+    } catch (error: any) {
       set({ 
         error: error.response?.data?.message || 'Failed to fetch services', 
         isLoading: false 
@@ -44,7 +44,7 @@ export const useServiceStore = create<ServiceState>((set) => ({
       const response = await api.get(`/services/${id}`);
       set({ currentService: response.data, isLoading: false });
       return response.data;
-    } catch (error) {
+    } catch (error: any) {
       set({ 
         error: error.response?.data?.message || 'Failed to fetch service', 
         isLoading: false 
@@ -59,7 +59,7 @@ export const useServiceStore = create<ServiceState>((set) => ({
       const response = await api.post('/services', serviceData);
       set((state) => ({ services: [...state.services, response.data], isLoading: false }));
       return response.data;
-    } catch (error) {
+    } catch (error: any) {
       set({ 
         error: error.response?.data?.message || 'Failed to create service', 
         isLoading: false 
@@ -78,7 +78,7 @@ export const useServiceStore = create<ServiceState>((set) => ({
         isLoading: false
       }));
       return response.data;
-    } catch (error) {
+    } catch (error: any) {
       set({ 
         error: error.response?.data?.message || 'Failed to update service', 
         isLoading: false 
@@ -95,7 +95,7 @@ export const useServiceStore = create<ServiceState>((set) => ({
         services: state.services.filter(s => s.id !== id),
         isLoading: false
       }));
-    } catch (error) {
+    } catch (error: any) {
       set({ 
         error: error.response?.data?.message || 'Failed to delete service', 
         isLoading: false 
@@ -109,7 +109,7 @@ export const useServiceStore = create<ServiceState>((set) => ({
     try {
       const response = await api.get('/services/stats');
       set({ serviceStats: response.data, isLoading: false });
-    } catch (error) {
+    } catch (error: any) {
       set({ 
         error: error.response?.data?.message || 'Failed to fetch service stats', 
         isLoading: false 

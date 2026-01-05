@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Text, ScrollView, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { View, StyleSheet, Text, ScrollView, TouchableOpacity, ActivityIndicator, Alert } from 'react-native';
 import { useServiceStore } from '../store/serviceStore';
 import { Icon } from 'react-native-elements';
 import { PieChart, BarChart } from 'react-native-chart-kit';
@@ -86,7 +86,7 @@ export default function ReportsScreen() {
             data={statusData}
             width={screenWidth}
             height={220}
-            chartConfig={
+            chartConfig={{
               backgroundColor: '#ffffff',
               backgroundGradientFrom: '#ffffff',
               backgroundGradientTo: '#ffffff',
@@ -95,7 +95,7 @@ export default function ReportsScreen() {
               style: {
                 borderRadius: 16
               }
-            }
+            }}
             accessor="population"
             backgroundColor="transparent"
             paddingLeft="15"
@@ -115,7 +115,7 @@ export default function ReportsScreen() {
             height={220}
             yAxisLabel=""
             yAxisSuffix=""
-            chartConfig={
+            chartConfig={{
               backgroundColor: '#ffffff',
               backgroundGradientFrom: '#ffffff',
               backgroundGradientTo: '#ffffff',
@@ -124,11 +124,11 @@ export default function ReportsScreen() {
               style: {
                 borderRadius: 16
               }
-            }
-            style={
+            }}
+            style={{
               marginVertical: 8,
               borderRadius: 16
-            }
+            }}
           />
         )}
       </View>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, Text, ScrollView, TouchableOpacity, TextInput, Alert, ActivityIndicator } from 'react-native';
-import { useNavigation, useRoute } from '@react-navigation/native';
+import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import { useServiceStore } from '../store/serviceStore';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../navigation/AppNavigator';
@@ -10,19 +10,14 @@ import { CustomPicker } from '../components/CustomPicker';
 import { Picker } from '@react-native-picker/picker';
 
 type ServiceDetailScreenNavigationProp = StackNavigationProp<RootStackParamList, 'ServiceDetail'>;
-
-type ServiceDetailRouteProp = {
-  params: {
-    serviceId: string;
-  };
-};
+type ServiceDetailRouteProp = RouteProp<RootStackParamList, 'ServiceDetail'>;
 
 export default function ServiceDetailScreen() {
   const route = useRoute<ServiceDetailRouteProp>();
   const { serviceId } = route.params;
   const { currentService, fetchServiceById, updateService, isLoading, error } = useServiceStore();
   const [newComment, setNewComment] = useState('');
-  const [status, setStatus] = useState<string>('');
+  const [status, setStatus] = useState<'pending' | 'in-progress' | 'completed' | 'cancelled'>('pending');
   const navigation = useNavigation<ServiceDetailScreenNavigationProp>();
 
   useEffect(() => {
